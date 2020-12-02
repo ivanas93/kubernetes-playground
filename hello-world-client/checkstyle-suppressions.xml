@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.1//EN"
+        "https://checkstyle.org/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+    <suppress checks="." files="HelloWorldServiceOuterClass.java"/>
+    <suppress checks="." files="HelloWorldReturn.java"/>
+    <suppress checks="." files="HelloWorldRequest.java"/>
+    <suppress checks="." files="HelloWorldServiceGrpc.java"/>
+
+</suppressions>

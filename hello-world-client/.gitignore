@@ -1,0 +1,56 @@
+README.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+*target*
+*node_modules*
+*.jar
+*.war
+*.ear
+*.class
+
+# yarn
+yarn.lock
+
+# eclipse specific git ignore
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# STS (Spring Tool Suite)
+.springBeans
+
+#Clover
+.clover/
+
+# yarn specific
+**/src/main/frontend/dist/**
+
+# POM autogenerate
+dependency-reduced-pom.xml

@@ -13,7 +13,7 @@ import java.util.Map;
 public class HelloWorldClientController {
     private final HelloWorldClientServiceImpl helloWorldClientServiceImpl;
 
-    @GetMapping("/")
+    @GetMapping("/message")
     public String getMessage(final @RequestParam Map<String, String> params) {
         var name = params.getOrDefault("name", "Undefined");
         return helloWorldClientServiceImpl.sendMessage(name);

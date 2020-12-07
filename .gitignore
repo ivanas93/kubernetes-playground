@@ -53,3 +53,5 @@ local.properties
 
 # POM autogenerate
 dependency-reduced-pom.xml
+
+run-local-comunication-between-containers.sh

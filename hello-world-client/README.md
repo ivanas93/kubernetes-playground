@@ -1,18 +1,21 @@
 # hello-world-client
 
-hello-world-client is a project as an example of use gRPC protocol over Spring boot application. This project contains an
-API controller [HelloWorldClientController.java](src/main/java/com/ivanas/helloworldclient/controller/HelloWorldClientController.java),
-definition service [HelloWorldService.proto](src/main/proto/HelloWorldService.proto) and gRPC client implementation 
+hello-world-client is a project as an example of use gRPC protocol over Spring boot application. This project contains
+an API
+controller [HelloWorldClientController.java](src/main/java/com/ivanas/helloworldclient/controller/HelloWorldClientController.java)
+, definition service [HelloWorldService.proto](src/main/proto/HelloWorldService.proto) and gRPC client implementation
 [HelloWorldClientServiceImpl](src/main/java/com/ivanas/helloworldclient/service/HelloWorldClientServiceImpl.java).
 
-hello-world-client expose port 8080 to be call by http request(GET). When controller is invoked, the client service gRPC 
-sent request to [HelloWorldServerService.java](../hello-world-server/src/main/java/com/ivanas/helloworldserver/service/HelloWorldServerService.java)
-
+hello-world-client expose port 8080 to be call by http request(GET). When controller is invoked, the client service gRPC
+sent request
+to [HelloWorldServerService.java](../hello-world-server/src/main/java/com/ivanas/helloworldserver/service/HelloWorldServerService.java)
 
 ## Configuration
 
 ### Application properties
 
+There are different application properties depending on environment. For select application properties is necessary send
+an environment variable (**JAVA_OPTS=-Dspring.profiles.active=local**). An example this is:
 ```properties
 server.port=8080
 spring.application.name=hello-world-client
@@ -78,12 +81,12 @@ mvn spring-boot:run
 ### Build docker image from Dockerfile
 
 ```bash
-docker build -t hello-world-client:lastest .
+docker build -t hello-world-client .
 ```
 
 ### Run docker container
 
 ```bash
-docker run -it -d -p8080:8080 hello-world-client
+docker run -dit --rm --name hello-world-client -p8080:8080 --env JAVA_OPTS=-Dspring.profiles.active=local hello-world-client
 ```
 

@@ -87,7 +87,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<phase>compile</phase>
+						<phase>verify</phase>
 						<goals>
 							<goal>check</goal>
 						</goals>

@@ -87,6 +87,6 @@ docker build -t hello-world-client .
 ### Run docker container
 
 ```bash
-docker run -dit --rm --name hello-world-client -p8080:8080 --env JAVA_OPTS=-Dspring.profiles.active=local hello-world-client
+docker run -dit --rm --name hello-world-client -p8080:8080 --env JAVA_OPTS=-Dspring.profiles.active=standalone hello-world-client
 ```
 

@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  hello-world-server:
+    image: 'hello-world-server'
+    ports:
+      - '9898'
+    expose:
+      - '9898'
+    networks:
+      client-server:
+
+  hello-world-client:
+    image: 'hello-world-client'
+    ports:
+      - '8080:8080'
+    environment:
+      - "JAVA_OPTS=-Dspring.profiles.active=compose"
+    depends_on:
+      - hello-world-server
+    networks:
+      client-server:
+
+networks:
+  client-server:
+    driver: bridge

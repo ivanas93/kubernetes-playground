@@ -15,7 +15,7 @@ gRPC:
 - [Client](hello-world-client/README.md)
 - [Server](hello-world-server/README.md)
 
-### Run microservice in local environment without docker-compose
+### Run microservices in local environment without docker-compose
 
 ```shell
 cd hello-world-client
@@ -24,5 +24,16 @@ docker run -dit --rm --name hello-world-client --network host -p8080:8080 --env 
 cd ../hello-world-server
 docker build -t hello-world-server .
 docker run -dit --rm --name hello-world-server --network host -p9898:9898 hello-world-server
+GET http://localhost:8080/message?name=ivanas93
 ```
 
+### Run microservices in local environment with docker-compose
+
+```shell
+cd hello-world-client
+docker build -t hello-world-client .
+cd ../hello-world-server
+docker build -t hello-world-server .
+docker-compose up
+GET http://localhost:8080/message?name=ivanas93
+```

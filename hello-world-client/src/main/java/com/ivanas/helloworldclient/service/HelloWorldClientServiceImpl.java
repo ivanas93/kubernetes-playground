@@ -2,10 +2,14 @@ package com.ivanas.helloworldclient.service;
 
 import com.ivanas.helloworldclient.service.HelloWorldServiceGrpc.HelloWorldServiceBlockingStub;
 import io.grpc.StatusRuntimeException;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+
 @Service
+@Slf4j
 public class HelloWorldClientServiceImpl implements HelloWorldClientService {
 
     @GrpcClient("hello-world-server")
@@ -18,6 +22,7 @@ public class HelloWorldClientServiceImpl implements HelloWorldClientService {
                     .build());
             return response.getReturn();
         } catch (final StatusRuntimeException e) {
+            log.error(Arrays.toString(e.getStackTrace()));
             return "Failed with " + e.getStatus().getCode().name();
         }
     }

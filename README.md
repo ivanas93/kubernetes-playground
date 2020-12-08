@@ -20,7 +20,7 @@ gRPC:
 ```shell
 cd hello-world-client
 docker build -t hello-world-client .
-docker run -dit --rm --name hello-world-client --network host -p8080:8080 --env JAVA_OPTS=-Dspring.profiles.active=local hello-world-client
+docker run -dit --rm --name hello-world-client --network host -p8080:8080 --env JAVA_OPTS=-Dspring.profiles.active=standalone hello-world-client
 cd ../hello-world-server
 docker build -t hello-world-server .
 docker run -dit --rm --name hello-world-server --network host -p9898:9898 hello-world-server

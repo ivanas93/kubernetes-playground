@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-server
+  labels:
+    app: hello-world-server
+spec:
+  type: NodePort
+  ports:
+    - port: 9898
+      targetPort: 9898
+      protocol: TCP
+      name: message
+  selector:
+    app: hello-world-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-server
+  labels:
+    app: hello-world-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-server
+  template:
+    metadata:
+      labels:
+        app: hello-world-server
+    spec:
+      containers:
+        - name: hello-word-server
+          image: hello-world-server:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9898
+              protocol: TCP

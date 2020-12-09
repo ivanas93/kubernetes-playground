@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-client
+  labels:
+    app: hello-world-client
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: message
+  selector:
+    app: hello-world-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-client
+  labels:
+    app: hello-world-client
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-client
+  template:
+    metadata:
+      labels:
+        app: hello-world-client
+    spec:
+      containers:
+        - name: hello-word-client
+          image: hello-world-client:latest
+          imagePullPolicy: Never
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=kubernetes"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
